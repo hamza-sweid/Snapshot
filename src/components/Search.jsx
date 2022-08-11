@@ -1,14 +1,22 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
+import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
+import { useDispatch } from 'react-redux';
+import { addGroup } from '../features/searchGroup/searchGroupSlice';
 
 const Search = ({ searchClicked }) => {
   const [value, setValue] = useState('');
+  const dispatch = useDispatch();
 
   const btnClicked = (e) => {
     e.preventDefault();
     searchClicked(value);
+  };
+
+  const handleAdd = () => {
+    dispatch(addGroup({ label: value, link: value }));
   };
 
   return (
@@ -28,11 +36,22 @@ const Search = ({ searchClicked }) => {
             <Button
               onClick={(e) => btnClicked(e)}
               size="large"
-              variant="contained"
+              variant="text"
               color="primary"
               disabled={value === ''}
             >
               <SearchIcon />
+            </Button>
+          ),
+          startAdornment: (
+            <Button
+              onClick={handleAdd}
+              size="large"
+              variant="text"
+              color="success"
+              disabled={value === ''}
+            >
+              <AddIcon />
             </Button>
           ),
         }}

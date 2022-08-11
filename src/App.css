@@ -55,4 +55,15 @@ img:hover {
 
 fieldset {
   right: 14px !important;
+  left: 14px !important
+}
+
+.btn-link {
+  position: relative;
+}
+.btn-link svg {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  cursor: pointer;
 }
