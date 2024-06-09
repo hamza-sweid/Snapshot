@@ -32,7 +32,8 @@
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "next lint"
   },
   "devDependencies": {
     "husky": "^7.0.0"
